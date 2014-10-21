@@ -10,15 +10,10 @@ var library = (function () {
         instance = this;
     };
  
-    //libraryClass.prototype.getBooksLength = function () {
-    //    if (books.length === 0) {
-    //        return false;
-    //    }
-    //}
  
     libraryClass.prototype.addBook = function (book) {
         // if book is in books
-        for (var i = 0; i < books.length; i++) {
+        for (var i=0; i<books.length; i++) {
             if (books[i] == book) {
                 return false;
             }
@@ -141,13 +136,6 @@ var library = (function () {
         return null;
     };
  
-
-
-
-    libraryClass.prototype.bookList = function () {
-        return books;
-    };
-  
  
     return libraryClass;
  
@@ -161,7 +149,7 @@ var Book = function (title, author, numberOfPages, publishDate) {
  
 }
  
-window.GuinessRecodLibrary = new library();
+window.MovieLibrary = new library();
 var book1 = new Book('Divergent', 'Veronica', 200, '2013, 3, 1');
 var book2 = new Book('LOTR', 'Tolken', 1000, '2012, 12, 12')
 GuinessRecodLibrary.addBook(book1)
