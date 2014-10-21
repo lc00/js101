@@ -20,7 +20,6 @@ var Library = (function () {
         // if book is in books
         for (var i = 0; i < books.length; i++) {
             if (books[i] == book) {
-                console.log(books[i], book)
                 return false;
             }
         }
@@ -33,17 +32,22 @@ var Library = (function () {
         if (books.length === 0) {
             return false;
         }
+
+        var flag = false;
+        var newBookArray = [];
        
-        // if title is in books, remove the book
-        for (var i = 0; i < books.length; i++) {
-            if (books[i].title === title) {
-                books.splice(i, 1);
-                return true;
+        // if title is not in books, add it in newBookArray and change flag 
+        for (var i=0; i<books.length; i++){
+            if (books[i].title !== title){
+                newBookArray.push(books[i]);
+                flag = true;
             }
         }
- 
-        // title is not in the books
-        return false;
+        
+        if (flag){
+            books = newBookArray;
+        }
+        return flag;
     };
  
     //removing all books by the authorName
@@ -105,6 +109,8 @@ var Library = (function () {
         }
         return num;
     };
+
+
  
 
 
