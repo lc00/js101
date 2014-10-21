@@ -81,6 +81,16 @@ var Library = (function () {
         }
         return matchedTitles;
     };
+
+    libraryClass.prototype.getBooksByAuthor = function(authorName){
+        var matchedAuthorBooks = [];
+        for (var i=0; i<books.length; i++){
+            if (books[i].author.indexOf(authorName) > -1){
+                matchedAuthorBooks.push(books[i].title);
+            }
+        }
+        return matchedAuthorBooks;
+    };
  
     libraryClass.prototype.bookList = function () {
         return books;
