@@ -48,21 +48,21 @@ var Library = (function () {
  
     //removing all books by the authorName
     libraryClass.prototype.removeBookByAuthor = function (authorName) {
-        var flag = false;
+        var len = books.length;
         var newBookArray = [];
        
         // if title is not in books, add it in newBookArray and change flag 
         for (var i=0; i<books.length; i++){
             if (books[i].author !== authorName){
                 newBookArray.push(books[i]);
-                flag = true;
             }
         }
         
-        if (flag){
+        if (len !== newBookArray.length){
             books = newBookArray;
+            return true;
         }
-        return flag;
+        return false;
     };
  
     libraryClass.prototype.getRandomBook = function () {
