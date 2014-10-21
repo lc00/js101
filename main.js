@@ -19,7 +19,8 @@ var Library = (function () {
     libraryClass.prototype.addBook = function (book) {
         // if book is in books
         for (var i = 0; i < books.length; i++) {
-            if (books[i] === book) {
+            if (books[i] == book) {
+                console.log(books[i], book)
                 return false;
             }
         }
@@ -91,7 +92,23 @@ var Library = (function () {
         }
         return matchedAuthorBooks;
     };
+
+    libraryClass.prototype.addBooks = function(newBooks) {
+        var doesBookExist;
+        var num = 0;
+
+        for (var i=0; i<newBooks.length; i++) {
+            doesBookExist = this.addBook(newBooks[i]);
+            if (doesBookExist){
+                num += 1;
+            }
+        }
+        return num;
+    };
  
+
+
+
     libraryClass.prototype.bookList = function () {
         return books;
     };
