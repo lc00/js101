@@ -59,7 +59,7 @@ var Library = (function () {
             return true;
         }
         return false;
-    }
+    };
  
     libraryClass.prototype.getRandomBook = function () {
         var len = books.length;
@@ -69,21 +69,18 @@ var Library = (function () {
             return books[randomNum];
         }
         return null;
-    }
+    };
  
     libraryClass.prototype.getBookBytitle = function (title) {
-        var str = '';
+        var matchedTitles = [];
         for (var i = 0; i < books.length; i++) {
             if (books[i].title.indexOf(title) > -1) {
- 
+                matchedTitles.push(books[i].title)
             }
            
         }
-        if (str) {
-            return str;
-        }
-        return false;
-    }
+        return matchedTitles;
+    };
  
     libraryClass.prototype.bookList = function () {
         return books;
