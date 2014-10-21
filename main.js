@@ -1,4 +1,4 @@
-var Library = (function () {
+var library = (function () {
     var instance;
     var books = [];
  
@@ -152,12 +152,12 @@ var Book = function (title, author, numberOfPages, publishDate) {
     this.title = title;
     this.author = author;
     this.numberOfPages = numberOfPages;
-    this.publishDate = publishDate;
+    this.publishDate = new Date(publishDate);
  
 }
  
-var lib = new Library();
-var book1 = new Book('Divergent', 'Veronica', 200, '13-13-13');
-var book2 = new Book('LOTR', 'Tolken', 1000, '12-12-12')
-lib.addBook(book1)
-lib.addBook(book2)
+window.GuinessRecodLibrary = new library();
+var book1 = new Book('Divergent', 'Veronica', 200, '2013, 3, 1');
+var book2 = new Book('LOTR', 'Tolken', 1000, '2012, 12, 12')
+GuinessRecodLibrary.addBook(book1)
+GuinessRecodLibrary.addBook(book2)
