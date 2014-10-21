@@ -109,7 +109,32 @@ var Library = (function () {
         return num;
     };
 
+    libraryClass.prototype.getAuthors = function(){
+        var authorList = [];
+        var authorName;
+        for (var i=0; i<books.length; i++){
+            authorName = books[i].author;
+            for(var j=1; j<books.length; j++){
+                if (authorName === books[j].author){
 
+                }
+                authorList.push(authorName);
+            }
+        }
+
+
+
+
+    }
+
+
+    libraryClass.prototype.getRandomAuthorName = function() {
+        var len = books.length;
+        if (len){
+            return books[Math.floor(Math.random() * len)].author;
+        }
+        return null;
+    };
  
 
 
