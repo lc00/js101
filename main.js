@@ -28,17 +28,32 @@ var Library = (function () {
         return true;
     };
  
-    libraryClass.prototype.removeBookBytitle = function (title) {
-        if (books.length === 0) {
-            return false;
-        }
-
-        var flag = false;
+    libraryClass.prototype.removeBookByTitle = function (title) {
+        var len = books.length;
         var newBookArray = [];
        
         // if title is not in books, add it in newBookArray and change flag 
         for (var i=0; i<books.length; i++){
             if (books[i].title !== title){
+                newBookArray.push(books[i]);
+            }
+        }
+        
+        if (len !== newBookArray.length){
+            books = newBookArray;
+            return true;
+        }
+        return false;
+    };
+ 
+    //removing all books by the authorName
+    libraryClass.prototype.removeBookByAuthor = function (authorName) {
+        var flag = false;
+        var newBookArray = [];
+       
+        // if title is not in books, add it in newBookArray and change flag 
+        for (var i=0; i<books.length; i++){
+            if (books[i].author !== authorName){
                 newBookArray.push(books[i]);
                 flag = true;
             }
@@ -48,22 +63,6 @@ var Library = (function () {
             books = newBookArray;
         }
         return flag;
-    };
- 
-    //removing all books by the authorName
-    libraryClass.prototype.removeBookByAuthor = function (authorName) {
-        var numOfBooks = 0;
-        for (var i = 0; i < books.length; i++) {
-            if (books[i].author === authorName) {
-                books.splice(i, 1);
-                numOfBooks += 1;
-            }
-        }
- 
-        if (numOfBooks > 0) {
-            return true;
-        }
-        return false;
     };
  
     libraryClass.prototype.getRandomBook = function () {
