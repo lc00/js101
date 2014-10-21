@@ -112,20 +112,25 @@ var library = (function () {
     libraryClass.prototype.getAuthors = function(){
         var authorList = [];
         var authorName;
-        for (var i=0; i<books.length; i++){
-            authorName = books[i].author;
-            for(var j=1; j<books.length; j++){
-                if (authorName === books[j].author){
 
+        var isInArray = function(authorName, array){
+            array.forEach(function(author){
+                // is book.author in authorList
+                if (authorName === author){
+                    return true;
                 }
-                authorList.push(authorName);
-            }
+            })
+            return false;
         }
 
-
-
-
-    }
+        books.forEach(function(book){
+            var result = isInArray(book.author, authorList);
+            if (!result){
+                authorList.push(book.author);
+            }
+        })
+        return authorList;
+    };
 
 
     libraryClass.prototype.getRandomAuthorName = function() {
